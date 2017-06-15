@@ -1,0 +1,17 @@
+@import url("./flex.css");
+
+html,body{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #0ff;
+}
+ul,li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+img{
+	display: block;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<!--<script type="text/javascript">
+			
+			<%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+			
+		</script>-->
+	</head>
+	<body>
+		<!--content-->
+		<div><%= htmlWebpackPlugin.options.date %></div>
+		
+		<% for (var key in htmlWebpackPlugin) { %>
+			<div><%= key %></div>
+				<% for (var key1 in htmlWebpackPlugin[key]) { %>
+					<div><%= key1 %> : <%= JSON.stringify(htmlWebpackPlugin[key][key1]) %></div>
+				<% } %>
+		<% } %>
+		
+		<% for (var k in htmlWebpackPlugin.files.chunks) { %>
+			
+			<% if (k != 'main') { %>
+				<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[k].entry %>"></script>
+			<% } %>
+		<% } %>
+		<img src="${ require('./src/assets/2.png') }"/>
+		<div id="app"></div>
+		
+	</body>
+</html>
